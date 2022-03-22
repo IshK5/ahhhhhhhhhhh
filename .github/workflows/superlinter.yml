@@ -1,17 +1,13 @@
-name: Super-Linter
+name: A workflow for the pipeline file
 
 on: push
 
 jobs:
-  super-lint:
-    name: Lint code base
+  build:
+    name: Hello world action
     runs-on: ubuntu-latest
     steps:
-      - name: Checkout code
-        uses: actions/checkout@v2
-
-      - name: Run Super-Linter
-        uses: github/super-linter@v3
-        env:
-          DEFAULT_BRANCH: main
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      - uses: actions/checkout@v1
+      - uses: ./action-a
+        with:
+          MY_NAME: "Mona"
